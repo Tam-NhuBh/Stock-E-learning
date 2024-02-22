@@ -118,3 +118,41 @@ img {
     overflow-clip-margin: content-box;
     overflow: clip;
 }
+
+/* ======== */
+.text {
+    color: white;
+    padding: 12px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center; 
+    
+
+  }
+  
+  .text:hover {
+    color: #88cafd;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center; /* Canh giữa theo chiều dọc */
+    margin-left: 3px;
+  }
+  
+  .logo img {
+    max-width: auto; /* Ảnh sẽ không vượt quá chiều rộng của .logo */
+    height: auto; /* Đảm bảo chiều cao tự động điều chỉnh dựa trên tỷ lệ chiều rộng */
+    margin-right: 30px;
+}
+  
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa các menu */
+  }
+  
+  
+
+  
