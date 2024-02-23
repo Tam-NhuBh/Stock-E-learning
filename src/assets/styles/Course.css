@@ -1,0 +1,31 @@
+.course-background-container {
+    background-color: #c0d5de;
+    padding: 20px 0;
+  }
+  
+  .course-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%; /* Thiết lập chiều cao cho mỗi Card */
+  }
+  
+  .course-content {
+    flex-grow: 1; /* Lấp đầy không gian còn trống */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .enroll-button {
+    height: 50px; /* Đặt chiều cao cố định cho nút Enroll */
+  }
+  
+  .course-item:hover {
+    transform: scale(1.05); /* Tăng kích thước của Card lên khi hover */
+
+  }
+  
