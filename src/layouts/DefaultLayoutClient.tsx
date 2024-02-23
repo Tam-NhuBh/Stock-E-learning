@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
+import ChatWidget from '../component/WhatsAppWeget';
+
 export default function DefaultLayoutClient({ children }: any) {
   const location = useLocation();
 
@@ -14,11 +16,11 @@ export default function DefaultLayoutClient({ children }: any) {
   const getPageTitle = (pathname: string) => {
     switch (pathname) {
       case '/about':
-        return 'About Us - Cửa hàng vui vẻ';
+        return 'About Us - Stock E-learning';
       case '/contact':
-        return 'Contact Us - Cửa hàng vui vẻ';
+        return 'Contact Us - Stock E-learning';
       default:
-        return 'Cửa hàng vui vẻ';
+        return ' Stock E-learning';
     }
   };
   return (
@@ -29,6 +31,9 @@ export default function DefaultLayoutClient({ children }: any) {
       <div className='mx-auto my-0 max-w-7xl'>{children}</div>
       <div>
         <Footer />
+      </div>
+      <div>
+        <ChatWidget/>
       </div>
     </div>
   )

@@ -1,11 +1,11 @@
-import Home from "../pages/home/Home"
+import guestHome from "../pages/guest/home/guestHome"
 
 
 
 const publicRoutes = [
   {
     path: '/',
-    component: Home
+    component: guestHome
   },
   
 ]
