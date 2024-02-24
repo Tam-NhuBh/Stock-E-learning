@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Grid, Card, CardContent, Typography, Button } from "@mui/material";
 import course1 from '../../../assets/img/banner.png';
@@ -33,7 +32,7 @@ const CourseComponent= () => {
             </Grid>
             <Grid item>
               <Link
-                className="bg-primary px-4 py-2 text-center font-semibold text-lg text-white rounded"
+                className="bg-primary px-3 py-2 text-center font-semibold text-lg text-white rounded"
                 to="/"
               >
                 View All
@@ -44,7 +43,7 @@ const CourseComponent= () => {
           <Grid container spacing={3} mt={"3px"}>
             {courses.map(course => (
               <Grid item key={course.id} xs={12} sm={6} md={6} lg={3}>
-                <Card className="course-item">
+                <Card className="course-item" style={{ borderRadius: '20px'}}>
                   <CardContent className="course-content">
                     {/* Nội dung của card */}
                     <img src={course.image} alt="img" style={{ width: '100%' }} />
