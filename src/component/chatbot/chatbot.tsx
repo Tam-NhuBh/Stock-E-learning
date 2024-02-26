@@ -2,53 +2,30 @@ import React, { useRef, useState } from 'react';
 import './style.css';
 import { FaComment, FaTimes } from 'react-icons/fa';
 import { MdOutlineSmartToy } from "react-icons/md";
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { addMessage } from '../../slice/chatbotClient.slice';
+import { chatbotApi } from '../../api/chatbotApi';
+
 const Chatbot: React.FC = () => {
+    const dispatch = useDispatch();
+    const messages = useSelector((state: RootState) => state.chatbotClient.messages);
+
     const [showChatIcon, setShowChatIcon] = useState(true);
     const chatboxRef = useRef<HTMLUListElement>(null);
     const chatInputRef = useRef<HTMLTextAreaElement>(null);
-    const [userMessage, setUserMessage] = useState<string | null>(null); // Variable to store user's message
     const inputInitHeight = chatInputRef.current?.scrollHeight || 0;
 
-    const createChatLi = (message: string, className: string) => {
-        // Create a chat <li> element with passed message and className
-        const chatLi = document.createElement("li");
-        chatLi.classList.add("chat", `${className}`);
-        let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
-        chatLi.innerHTML = chatContent;
-        chatLi.querySelector("p")!.textContent = message;
-        return chatLi; // return chat <li> element
-    }
-
-    const generateResponse = (chatElement: HTMLElement) => {
-
-        const API_URL = "https://api.openai.com/v1/chat/completions";
-        const messageElement = chatElement.querySelector("p");
-
-        // Define the properties and message for the API request
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer `
-            },
-            body: JSON.stringify({
-                model: "gpt-3.5-turbo",
-                messages: [{ role: "user", content: userMessage }],
-            })
-        }
-
-        // Send POST request to API, get response and set the reponse as paragraph text
-        fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
-            messageElement!.textContent = data.choices[0].message.content.trim();
-        }).catch(() => {
-            messageElement!.classList.add("error");
-            messageElement!.textContent = "Oops! Something went wrong. Please try again.";
-        }).finally(() => chatboxRef.current!.scrollTo(0, chatboxRef.current!.scrollHeight));
-    }
+    const generateResponse = async (userMessage: string) => {
+        const botResponse = await chatbotApi(userMessage); // Call your chatbotApi function
+        dispatch(addMessage(botResponse));
+    };
 
     const handleChat = () => {
-        setUserMessage(chatInputRef.current?.value.trim() || ''); // Get user entered message and remove extra whitespace
+        const userMessage = chatInputRef.current?.value.trim();
         if (!userMessage) return;
+
+        dispatch(addMessage(userMessage)); // Add user message to Redux store
 
         // Clear the input textarea and set its height to default
         if (chatInputRef.current) {
@@ -58,20 +35,14 @@ const Chatbot: React.FC = () => {
 
         // Append the user's message to the chatbox
         if (chatboxRef.current) {
-            chatboxRef.current.appendChild(createChatLi(userMessage, "outgoing"));
             chatboxRef.current.scrollTo(0, chatboxRef.current.scrollHeight);
         }
 
         setTimeout(() => {
             // Display "Thinking..." message while waiting for the response
-            const incomingChatLi = createChatLi("Thinking...", "incoming");
-            if (chatboxRef.current) {
-                chatboxRef.current.appendChild(incomingChatLi);
-                chatboxRef.current.scrollTo(0, chatboxRef.current.scrollHeight);
-                generateResponse(incomingChatLi);
-            }
+            generateResponse(userMessage);
         }, 600);
-    }
+    };
 
     const handleInputChange = () => {
         // Adjust the height of the input textarea based on its content
@@ -98,14 +69,18 @@ const Chatbot: React.FC = () => {
                     <span className="close-btn material-symbols-outlined" onClick={handleToggleChatbot}>close</span>
                 </header>
                 <ul className="chatbox" ref={chatboxRef}>
-                    <li className="chat incoming">
-                        <MdOutlineSmartToy
-                            className='material-symbols-outlined icon'
-                            size={40}
-                            style={{ marginRight: '3px', marginTop: 'auto', marginBottom: '10px' }} // Áp dụng style nội tuyến
-                        />
-                        <p>Hi there 👋<br />How can I help you today?</p> 
-                    </li>
+                    {messages.map((message, index) => (
+                        <li key={index} className={`chat ${index % 2 === 0 ? 'incoming' : 'outgoing'}`}> 
+                            {index % 2 === 0 && (
+                                <MdOutlineSmartToy
+                                    className='material-symbols-outlined icon'
+                                    size={40}
+                                    style={{ marginRight: '3px', marginTop: 'auto', marginBottom: '10px' }}
+                                />
+                            )}
+                            <p>{message}</p>
+                        </li>
+                    ))}
                 </ul>
                 <div className="chat-input">
                     <textarea
