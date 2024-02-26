@@ -1,5 +1,5 @@
 import guestHome from "../pages/guest/home/guestHome"
-
+import guestCourseDetail from "../pages/guest/courseDetail/guestCourseDetail"
 
 
 const publicRoutes = [
@@ -8,6 +8,10 @@ const publicRoutes = [
     component: guestHome
   },
   
+  {
+    path: '/courseDetail',
+    component:  guestCourseDetail
+  }
 ]
 
 
