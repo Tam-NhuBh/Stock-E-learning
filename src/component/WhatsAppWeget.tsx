@@ -1,14 +1,26 @@
 
- // @ts-ignore
+// @ts-ignore
 import WhatsAppWidget from "react-whatsapp-chat-widget";
 import "../assets/styles/WhatsAppWeget.css";
 import logo from '../assets/img/logo.png';
-
+import { useState } from "react";
 // const langchain = new Langchain("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");
 
 const WhatsAppWeget = () => {
-    return (
-<WhatsAppWidget
+	const steps = [
+		{
+			id: '0',
+			message: 'Welcome to react chatbot!',
+			trigger: '1',
+		},
+		{
+			id: '1',
+			message: 'Bye!',
+			end: true,
+		},
+	];
+	return (
+		<WhatsAppWidget
 			phoneNo="+919973893644"
 			position="right"
 			widgetWidth="300px"
@@ -34,9 +46,10 @@ const WhatsAppWeget = () => {
 			btnBgColor="#22C55E"
 			btnTxt="Let's Chat"
 			btnTxtColor="white"
-			
+
 		/>
-    );
+
+	);
 };
 
 export default WhatsAppWeget;
