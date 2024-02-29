@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Card, CardContent, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Pagination } from "@mui/material";
+import { Grid, Card, CardContent, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Pagination } from "@mui/material";
 
 const PostComponent= () => {
   // Dữ liệu tĩnh cho danh sách bài post tin tức
@@ -53,40 +53,38 @@ const PostComponent= () => {
   }, [trends]);
 
   return(
-    <div style={{ backgroundColor: '#d3f2ff'}}>
-      <Grid container spacing={4}>
+    <div className="post-component">
+      <Grid container spacing={4} style={{ marginTop: '3px', backgroundColor: '#d3f2ff', padding: '20px' }}>
         <Grid item xs={12} lg={8}>
-          <Typography variant="h5" component="h4" style={{marginLeft: '10px', marginBottom: '20px', textAlign: "left" }}>
-            New feeds
-          </Typography>
-
-          {currentPosts.map(post => (
-            <Card key={post.id} style={{ marginBottom: '20px', marginLeft: '10px' }}>
-              <CardContent style={{ display: 'flex' }}>
-                <div style={{ width: '30%', marginRight: '20px' }}>
-                  <img src={post.image} alt={post.title} style={{ width: '100%', height: 'auto' }} />
-                </div>
-                
-                <div style={{ display: "flex", flexDirection: "column", textAlign: "left" }}>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <Typography variant="subtitle1" style={{ marginRight: "5px" }}>{post.type}</Typography>
-                      <Typography variant="subtitle2" color="textSecondary">|</Typography>
-                    <Typography variant="body2" color="textSecondary">{post.time}</Typography>
+            <Typography variant="h5" component="h4" style={{marginLeft: '10px', marginBottom: '5px', textAlign: "left" }}>
+                New feeds
+            </Typography>
+            {currentPosts.map(post => (
+              <Card key={post.id} style={{ marginBottom: '20px' }}>
+                <CardContent style={{ display: 'flex' }}>
+                  <div style={{ width: '30%', marginRight: '20px' }}>
+                    <img src={post.image} alt={post.title} style={{ width: '100%', height: 'auto' }} />
                   </div>
+                  
+                  <div style={{ display: "flex", flexDirection: "column",  textAlign: "left"  }}>
+                    <div style={{ marginBottom: "10px" }}>
+                      <Typography variant="subtitle1" style={{ fontWeight: "bold", color: "#333" }}>{post.type}</Typography>
+                      <Typography variant="body2" color="textSecondary">{post.time}</Typography>
+                    </div>
 
-                  <Typography variant="h5" component="h2" style={{ marginBottom: "10px" }}>{post.title}</Typography>
-                  <Typography>{post.content}</Typography>
-                </div>
-              </CardContent>
-            </Card>
+                    <Typography variant="h5" component="h2" style={{ marginBottom: "10px", color: "#333" }}>{post.title}</Typography>
+                    <Typography style={{ color: "#555" }}>{post.content}</Typography>
+                  </div>
+                </CardContent>
+              </Card>
           ))}
           <Pagination count={totalPages} page={page} onChange={handleChangePage} />
         </Grid>
         
         <Grid item xs={12} lg={4}>
-          <Card>
+          <Card style={{ height: '60%', marginTop: '36px' }}>
             <CardContent>
-              <Typography variant="h5" component="h2">
+              <Typography variant="h5" component="h2" style={{ marginBottom: '20px' }}>
                 Bảng chỉ số chứng khoán
               </Typography>
               <TableContainer>
@@ -98,22 +96,15 @@ const PostComponent= () => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {trends.map((trend) => (
-                      <TableRow key={trend.id}>
-                        <TableCell component="th" scope="row">
-                          {trend.name}
-                        </TableCell>
-                        <TableCell align="right">{trend.value}</TableCell>
-                      </TableRow>
-                    ))}
+                    {/* Thêm nội dung cho bảng */}
                   </TableBody>
                 </Table>
               </TableContainer>
             </CardContent>
-            </Card>
-          </Grid>
+          </Card>
         </Grid>
-      </div>
+      </Grid>
+    </div>
   );
 };
 

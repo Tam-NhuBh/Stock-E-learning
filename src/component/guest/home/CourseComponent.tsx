@@ -33,7 +33,7 @@ const CourseComponent= () => {
             <Grid item>
               <Link
                 className="bg-primary px-3 py-2 text-center font-semibold text-lg text-white rounded"
-                to="/courseDetail"
+                to="/course"
               >
                 View All
               </Link>
