@@ -5,7 +5,7 @@ import adsBanner from '../../../assets/img/stock.jpg';
 import '../../../assets/styles/Course.css'; // Import the CSS file
 import course1 from '../../../assets/img/banner.png';
 
-const GuestCourseDetail = () => {
+const GuestCourse = () => {
   const [checked, setChecked] = useState(false);
   const [checkedFilter, setCheckedFilter] = useState(false);
   const [price, setPrice] = useState<number>(0);
@@ -192,4 +192,4 @@ const GuestCourseDetail = () => {
   );
 };
 
-export default GuestCourseDetail;
+export default GuestCourse;

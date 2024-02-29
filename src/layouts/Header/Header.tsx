@@ -4,6 +4,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import { useNavigate } from "react-router-dom";
 import LOGO from "../../assets/img/logo.png";
 import "./header.css";
+import { Link } from 'react-router-dom';
 
 function Main() {
   const navigate = useNavigate();
@@ -38,13 +39,12 @@ function Main() {
        
         {/* Menu */}
           <Box className="menu"> {/* Sử dụng class "menu" để căn chỉnh vị trí */}      
-            <Typography className="text"> Trang chủ</Typography>
-            <Typography className="text">Tin Tức</Typography>
-            <Typography className="text">Khóa Học</Typography>
-            <Typography className="text">Tuyển sinh</Typography>
-            <Typography className="text">Đào tạo</Typography>
-            <Typography className="text">Người học</Typography>
-            <Typography className="text">Liên Hệ</Typography>
+          <Link to="/" className="text" style={{ fontSize: '16px', fontWeight: 'bold' }}>HOME</Link>
+            <Link to="/blog" className="text" style={{ fontSize: '16px', fontWeight: 'bold' }}>NEWS</Link>
+            <Link to="/course" className="text" style={{ fontSize: '16px', fontWeight: 'bold' }}>COURSE</Link>
+            <Link to="/enrollment" className="text" style={{ fontSize: '16px', fontWeight: 'bold' }}>ENROLLMENT</Link>
+            <Link to="/training" className="text" style={{ fontSize: '16px', fontWeight: 'bold' }}>TRAINING</Link>
+            <Link to="/contact" className="text" style={{ fontSize: '16px', fontWeight: 'bold' }}>CONTACT</Link>
           </Box>
       </div>
      
@@ -53,7 +53,7 @@ function Main() {
         <Button size="small" href="/login">
           <Box display={"flex"} alignItems={"center"} gap={1}>
             <PersonIcon sx={{ color: "white" }} />
-              <Typography color={"white"} fontSize={12} fontWeight={"bold"}>
+              <Typography color={"white"} fontSize={15} fontWeight={"bold"}>
                 Đăng nhập
               </Typography>
           </Box>

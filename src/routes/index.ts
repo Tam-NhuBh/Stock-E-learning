@@ -1,5 +1,6 @@
 import guestHome from "../pages/guest/home/guestHome"
-import guestCourseDetail from "../pages/guest/courseDetail/guestCourseDetail"
+import guestCourse from "../pages/guest/course/guestCourse"
+import guestBlog from "../pages/guest/blog/guestBlog"
 
 
 const publicRoutes = [
@@ -9,8 +10,13 @@ const publicRoutes = [
   },
   
   {
-    path: '/courseDetail',
-    component:  guestCourseDetail
+    path: '/course',
+    component:  guestCourse
+  },
+
+  {
+    path: '/blog',
+    component:  guestBlog
   }
 ]
 
