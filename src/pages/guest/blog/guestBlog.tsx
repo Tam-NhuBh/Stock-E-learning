@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Card, Button , CardContent, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Pagination } from "@mui/material";
 import trend from "../../../assets/img/trend.jpg";
-import { Scrollbars } from 'react-custom-scrollbars';
 
 const GuestBlog = () => {
   const newsPosts = [
