@@ -5,7 +5,24 @@ import adsBanner from '../../../assets/img/stock.jpg';
 import '../../../assets/styles/Course.css'; // Import the CSS file
 import course1 from '../../../assets/img/banner.png';
 
-const GuestCourse = () => {
+const GuestCourse = () => { // Removed the `courses` parameter here
+  const courses = [
+    { id: 1, title: "Introduction to Stock Market", price: 5500, oldPrice: 6500, image: course1 },
+    { id: 2, title: "Technical Analysis Masterclass", price: 6500, oldPrice: 7500, image: course1 },
+    { id: 3, title: "Options Trading Basics", price: 6000, oldPrice: 7000, image: course1 },
+    { id: 4, title: "Fundamental Analysis Fundamentals", price: 7000, oldPrice: 8000, image:  course1 },
+    { id: 5, title: "Day Trading Strategies", price: 7500, oldPrice: 8500, image:  course1  },
+    { id: 6, title: "Risk Management in Stock Trading", price: 6000, oldPrice: 7000, image: course1  },
+    { id: 7, title: "Swing Trading Essentials", price: 6500, oldPrice: 7500, image: course1 },
+    { id: 8, title: "Candlestick Patterns and Their Meanings", price: 7000, oldPrice: 8000, image:  course1  },
+    { id: 9, title: "Cryptocurrency Investment Strategies", price: 8000, oldPrice: 9000, image: course1 },
+    { id: 10, title: "Forex Trading for Beginners", price: 6000, oldPrice: 7000, image: course1 },
+    { id: 11, title: "Algorithmic Trading Fundamentals", price: 7500, oldPrice: 8500, image: course1 },
+    { id: 12, title: "Investing in Real Estate", price: 8500, oldPrice: 9500, image: course1 },
+    // Thêm các khóa học khác tại đây
+];
+  
+  
   const [checked, setChecked] = useState(false);
   const [checkedFilter, setCheckedFilter] = useState(false);
   const [price, setPrice] = useState<number>(0);
@@ -28,22 +45,11 @@ const GuestCourse = () => {
     setCurrentPage(page);
   };
 
-  const courses = [
-      { id: 1, title: "Introduction to Stock Market", price: 5500, oldPrice: 6500, image: course1 },
-      { id: 2, title: "Technical Analysis Masterclass", price: 6500, oldPrice: 7500, image: course1 },
-      { id: 3, title: "Options Trading Basics", price: 6000, oldPrice: 7000, image: course1 },
-      { id: 4, title: "Fundamental Analysis Fundamentals", price: 7000, oldPrice: 8000, image:  course1 },
-      { id: 5, title: "Day Trading Strategies", price: 7500, oldPrice: 8500, image:  course1  },
-      { id: 6, title: "Risk Management in Stock Trading", price: 6000, oldPrice: 7000, image: course1  },
-      { id: 7, title: "Swing Trading Essentials", price: 6500, oldPrice: 7500, image: course1 },
-      { id: 8, title: "Candlestick Patterns and Their Meanings", price: 7000, oldPrice: 8000, image:  course1  },
-      { id: 9, title: "Cryptocurrency Investment Strategies", price: 8000, oldPrice: 9000, image: course1 },
-      { id: 10, title: "Forex Trading for Beginners", price: 6000, oldPrice: 7000, image: course1 },
-      { id: 11, title: "Algorithmic Trading Fundamentals", price: 7500, oldPrice: 8500, image: course1 },
-      { id: 12, title: "Investing in Real Estate", price: 8500, oldPrice: 9500, image: course1 },
-      // Thêm các khóa học khác tại đây
-  ];
-    
+  const handleEnroll = (courseId: number) => {
+    // Chuyển đến trang CourseDetail với id của khóa học được truyền
+    window.location.href = `/course/${courseId}`;
+  };
+  
 
   // Tính toán phạm vi của các khóa học cần hiển thị trên trang hiện tại
   const startIndex = (currentPage - 1) * tuitionPerPage;
@@ -168,7 +174,14 @@ const GuestCourse = () => {
                                 <del>Rs.{course.oldPrice}</del>
                               </Typography>
                             </CardContent>
-                            <Button variant="contained" color="primary" className="enroll-button">Enroll Now</Button>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                className="enroll-button"
+                                onClick={() => handleEnroll(course.id)}
+                              >
+                                Enroll Now
+                              </Button>
                           </Card>
                         </Grid>
                       ))}
