@@ -3,7 +3,12 @@ import guestCourse from "../pages/guest/course/guestCourse"
 import guestBlog from "../pages/guest/blog/guestBlog"
 import guestContact from "../pages/guest/contact/guestContact"
 import GuestCourseDetail from "../pages/guest/course/guestCourseDetail"
+import StudentLoginPage from "../component/student-login-page/student-login-page"
+//import React, { lazy } from "react";
 
+// const LazyStudentLogin = lazy(
+//   () => import("../component/student-login-page/student-login-page")
+// );
 const publicRoutes = [
   {
     path: '/',
@@ -28,6 +33,10 @@ const publicRoutes = [
   {
     path: '/course/:id',
     component:  GuestCourseDetail
+  },
+  {
+    path: "/login",
+    component: StudentLoginPage
   }
 ]
 

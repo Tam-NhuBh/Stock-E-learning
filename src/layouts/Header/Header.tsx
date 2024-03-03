@@ -25,7 +25,9 @@ function Main() {
     navigate("/");
     window.location.reload();
   };
-
+  const handleLoginButtonClick = () => {
+    navigate("/login"); // Chuyển hướng đến trang login khi nút được nhấp
+  };
   return (
     <Box
       width={"100%"}
@@ -50,7 +52,7 @@ function Main() {
      
       {/* Button đăng nhập / đăng xuất */}
       {/* {!user?.username ? ( */}
-        <Button size="small" href="/login">
+        <Button size="small" onClick={handleLoginButtonClick}>
           <Box display={"flex"} alignItems={"center"} gap={1}>
             <PersonIcon sx={{ color: "white" }} />
               <Typography color={"white"} fontSize={15} fontWeight={"bold"}>
