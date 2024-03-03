@@ -220,7 +220,7 @@ const GuestCourseDetail = () => {
       {currentTab === 'about' && (
         <div style={{ paddingLeft: '20px', display: 'flex', alignItems: 'flex-start', textAlign: 'left', marginTop: '10px'}}>
           <div style={{ paddingLeft: '10px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-            <Typography variant="h5" style={{ marginBottom: '5px' }}>What you'll learn</Typography>
+            <Typography variant="h5" style={{ marginBottom: '10px' }}>What you'll learn</Typography>
             <div style={{ paddingLeft: '10px' }}>
               {course.description.map((description, index) => (
                 <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '5px' }}>
@@ -230,7 +230,7 @@ const GuestCourseDetail = () => {
               ))}
             </div>
 
-            <Typography variant="h5" style={{ marginBottom: '5px', marginTop:'40px'}}>Skills you'll gain</Typography>      
+            <Typography variant="h5" style={{ marginBottom: '10px', marginTop:'40px'}}>Skills you'll gain</Typography>      
             <div style={{ paddingLeft: '32px' }}>
               {course.outcomes.map((outcome, index) => (
                 <Typography key={index} variant="body1">{outcome}</Typography>
@@ -240,7 +240,7 @@ const GuestCourseDetail = () => {
 
           {/* Khung chứa cho bình luận và lượt vote */}
           <div style={{  marginRight: '50px', width: '500px' }}>
-            <Typography variant="h5" style={{ marginBottom: '5px' }}>Comments</Typography>
+            <Typography variant="h5" style={{ marginBottom: '10px' }}>Comments</Typography>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               {/* Hiển thị nút vote */}
               <button style={{ marginRight: '10px', padding:'2px', width:'70px' }}>Vote</button>
@@ -267,7 +267,7 @@ const GuestCourseDetail = () => {
       {currentTab === 'courses' && (
         <div style={{ paddingLeft: '10px', display: 'flex', marginRight: '22px', alignItems: 'flex-start', textAlign: 'left', marginTop: '10px'}}>
           <div style={{ paddingLeft: '5px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-            <Typography variant="h5">Curriculum</Typography>
+            <Typography variant="h5" style={{marginBottom: '10px'}}>Curriculum</Typography>
             {course.courses.map((courseItem, courseIndex) => (
               <Accordion key={courseIndex} expanded={expandedSections[courseIndex]} onChange={() => toggleSection(courseIndex)}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
