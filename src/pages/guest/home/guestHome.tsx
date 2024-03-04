@@ -4,18 +4,18 @@ import PostComponent from '../../../component/guest/home/PostComponent';
 
 import { Grid } from '@mui/material';
 
-export default function guestHome() {
+export default function GuestHome() {
     return (
-        <Grid container spacing={4}>
-            <Grid item xs={12}>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <div style={{ flex: 1 }}>
                 <BannerComponent />
-            </Grid>
-            <Grid item xs={12}>
+            </div>
+            <div style={{ flex: 1 }}>
                 <CourseComponent />
-            </Grid>
-            <Grid item xs={12}>
+            </div>
+            <div style={{ flex: 1 }}>
                 <PostComponent />
-            </Grid>
-        </Grid>
+            </div>
+        </div>
     )
 }

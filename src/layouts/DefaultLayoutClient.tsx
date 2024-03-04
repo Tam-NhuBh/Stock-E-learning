@@ -25,19 +25,33 @@ export default function DefaultLayoutClient({ children }: any) {
     }
   };
   return (
-    <div className='bg-slate-100'>
+    // <div className='bg-slate-100'>
+    //   <div>
+    //     <Header />
+    //   </div>
+    //   <div className='mx-auto my-0 max-w-7xl'>{children}</div>
+
+    //   <div>
+    //     <Chatbot/>
+    //   </div>
+    //   <div>
+    //     <Footer />
+    //   </div>
+
+    // </div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <div>
         <Header />
       </div>
-      <div className='mx-auto my-0 max-w-7xl'>{children}</div>
 
+      <div style={{ flex: '1' }}>{children}</div> {/* Các children bao full viền trang web */}
       <div>
         <Chatbot/>
       </div>
+
       <div>
         <Footer />
       </div>
-
     </div>
   )
 }
