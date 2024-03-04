@@ -3,7 +3,7 @@ import guestCourse from "../pages/guest/course/guestCourse"
 import guestBlog from "../pages/guest/blog/guestBlog"
 import guestContact from "../pages/guest/contact/guestContact"
 import GuestCourseDetail from "../pages/guest/course/guestCourseDetail"
-import StudentLoginPage from "../component/student-login-page/student-login-page"
+import Login from "../component/Login/login"
 //import React, { lazy } from "react";
 
 // const LazyStudentLogin = lazy(
@@ -36,7 +36,7 @@ const publicRoutes = [
   },
   {
     path: "/login",
-    component: StudentLoginPage
+    component: Login
   }
 ]
 

@@ -234,10 +234,12 @@ const GuestCourse = () => {
   const displayedCourses = courses.slice(startIndex, endIndex);
 
   return (
-      <div style={{ backgroundColor: '#d3f2ff' }}>
+      <div className ="course-page" style={{ backgroundColor: '#d3f2ff', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         
-        <div style={{ position: 'relative', backgroundColor:'white', objectFit: 'cover' }}>
-          <img src={adsBanner} alt="ads" style={{ maxWidth: '100%', borderRadius: '10px', marginTop:'10px' , marginBottom:'10px' }} />
+        <div style={{ position: 'relative', backgroundColor: 'white', overflow: 'hidden', marginBottom: '10px', maxWidth: '100%', height: '300px' }}>
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.2)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <span style={{ color: 'white', fontSize: '24px' }}>Your Advertisement Text Here</span>
+          </div>
         </div>
 
         <div className="container mx-auto" style={{ height: 'auto', marginTop:'20px'}}>

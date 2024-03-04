@@ -19,7 +19,6 @@ const GuestBlog = () => {
     { id: 13, title: "Bài post 13", content: "Nội dung bài post 13", image: "path/to/image8.jpg", type: "Tin tức", time: "12:00 PM, 24/02/2024" },
     { id: 14, title: "Bài post 14", content: "Nội dung bài post 14", image: "path/to/image8.jpg", type: "Tin tức", time: "12:00 PM, 24/02/2024" },
     { id: 15, title: "Bài post 15", content: "Nội dung bài post 15", image: "path/to/image8.jpg", type: "Tin tức", time: "12:00 PM, 24/02/2024" },
-
   ];
 
   const [page, setPage] = useState(1);
@@ -39,87 +38,87 @@ const GuestBlog = () => {
   const slicedPosts = [
     newsPosts.slice(0, 2),
     newsPosts.slice(2, 4),
-
   ];
 
   return (
-    <div className="guest-blog">
-      <Grid container spacing={4} style={{ marginTop: '2px', backgroundColor: '#d3f2ff', padding: '20px' }}>
-        <Grid item xs={12} lg={8}>
-          {currentPosts.map(post => (
-            <Card key={post.id} style={{ marginBottom: '20px' }}>
-              <CardContent style={{ display: 'flex' }}>
-                <div style={{ width: '30%', marginRight: '20px' }}>
-                  <img src={post.image} alt={post.title} style={{ width: '100%', height: 'auto' }} />
-                </div>
-                <div style={{ display: "flex", flexDirection: "column",  textAlign: "left"  }}>
-                  <div style={{ marginBottom: "10px" }}>
-                    <Typography variant="subtitle1" style={{ fontWeight: "bold", color: "#333" }}>{post.type}</Typography>
-                    <Typography variant="body2" color="textSecondary">{post.time}</Typography>
+    <div className="guest-blog" style={{ height: '100vh', margin: 0, padding: 0, backgroundColor: '#d3f2ff' }}>
+      <div style={{ padding: '20px',backgroundColor: '#d3f2ff' }}>
+        <Grid container spacing={4} style={{ marginTop: '2px'  }}>
+          <Grid item xs={12} lg={8}>
+            {currentPosts.map(post => (
+              <Card key={post.id} style={{ marginBottom: '20px' }}>
+                <CardContent style={{ display: 'flex' }}>
+                  <div style={{ width: '30%', marginRight: '20px' }}>
+                    <img src={post.image} alt={post.title} style={{ width: '100%', height: 'auto' }} />
                   </div>
-                  <Typography variant="h5" component="h2" style={{ marginBottom: "10px", color: "#333" }}>{post.title}</Typography>
-                  <Typography style={{ color: "#555" }}>{post.content}</Typography>
-                </div>
+                  <div style={{ display: "flex", flexDirection: "column",  textAlign: "left"  }}>
+                    <div style={{ marginBottom: "10px" }}>
+                      <Typography variant="subtitle1" style={{ fontWeight: "bold", color: "#333" }}>{post.type}</Typography>
+                      <Typography variant="body2" color="textSecondary">{post.time}</Typography>
+                    </div>
+                    <Typography variant="h5" component="h2" style={{ marginBottom: "10px", color: "#333" }}>{post.title}</Typography>
+                    <Typography style={{ color: "#555" }}>{post.content}</Typography>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+            <Pagination count={totalPages} page={page} onChange={handleChangePage} />
+          </Grid>
+
+          <Grid item xs={12} lg={4} style={{ position: 'sticky', top: '20px'}}>
+            <Card style={{ marginBottom: '20px', maxHeight: 'calc(100vh - 160px)', overflowY: 'auto' }}>
+              <CardContent>
+                <Typography variant="h5" component="h2" style={{ marginBottom: '20px' }}>
+                  Trending
+                </Typography>
+                <TableContainer>
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Index</TableCell>
+                        <TableCell align="right">Value</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {/* Thêm nội dung cho bảng */}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+                {/* Ảnh mới */}
+                <img src={trend} alt="Trending" style={{ width: '100%', height: 'auto' }} />
               </CardContent>
             </Card>
-          ))}
-          <Pagination count={totalPages} page={page} onChange={handleChangePage} />
+
+            {/* Khung Latest posts */}
+            <Card style={{ flex: '1 1 auto', maxHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}>
+              <CardContent>
+                <Typography variant="h5" component="h2" style={{ marginBottom: '20px' }}>
+                  Latest posts
+                </Typography>
+                {slicedPosts.map((row, rowIndex) => (
+                  <Grid container key={rowIndex} spacing={2}>
+                    {row.map(post => (
+                      <Grid item xs={12} key={post.id}>
+                        <CardContent style={{ display: 'flex' }}>
+                          <div style={{ width: '30%', marginRight: '20px' }}>
+                            <img src={post.image} alt={post.title} style={{ width: '100%', height: 'auto' }} />
+                          </div>
+                          <div style={{ display: "flex", flexDirection: "column", textAlign: "left", flexGrow: 1 }}>
+                            <Typography variant="subtitle1" style={{ fontWeight: "bold", color: "#333" }}>{post.time}</Typography>
+                            <Typography variant="h6" style={{ marginBottom: "10px", color: "#333" }}>{post.title}</Typography>
+                            <Typography style={{ color: "#555", marginBottom: "10px" }}>{post.content}</Typography>
+                            <Button variant="contained" color="primary">Đọc nhanh</Button>
+                          </div>
+                        </CardContent>
+                      </Grid>
+                    ))}
+                  </Grid>
+                ))}
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
-
-        <Grid item xs={12} lg={4} style={{ position: 'sticky', top: '20px'}}>
-          <Card style={{ marginBottom: '20px', maxHeight: 'calc(100vh - 160px)', overflowY: 'auto' }}>
-            <CardContent>
-              <Typography variant="h5" component="h2" style={{ marginBottom: '20px' }}>
-                Trending
-              </Typography>
-              <TableContainer>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Index</TableCell>
-                      <TableCell align="right">Value</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {/* Thêm nội dung cho bảng */}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-              {/* Ảnh mới */}
-              <img src={trend} alt="Trending" style={{ width: '100%', height: 'auto' }} />
-            </CardContent>
-          </Card>
-
-          {/* Khung Latest posts */}
-          <Card style={{ flex: '1 1 auto', maxHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}>
-            <CardContent>
-              <Typography variant="h5" component="h2" style={{ marginBottom: '20px' }}>
-                Latest posts
-              </Typography>
-              {slicedPosts.map((row, rowIndex) => (
-                <Grid container key={rowIndex} spacing={2}>
-                  {row.map(post => (
-                    <Grid item xs={12} key={post.id}>
-                      <CardContent style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', marginRight: '20px' }}>
-                          <img src={post.image} alt={post.title} style={{ width: '100%', height: 'auto' }} />
-                        </div>
-                        <div style={{ display: "flex", flexDirection: "column", textAlign: "left", flexGrow: 1 }}>
-                          <Typography variant="subtitle1" style={{ fontWeight: "bold", color: "#333" }}>{post.time}</Typography>
-                          <Typography variant="h6" style={{ marginBottom: "10px", color: "#333" }}>{post.title}</Typography>
-                          <Typography style={{ color: "#555", marginBottom: "10px" }}>{post.content}</Typography>
-                          <Button variant="contained" color="primary">Đọc nhanh</Button>
-                        </div>
-                      </CardContent>
-                    </Grid>
-                  ))}
-                </Grid>
-              ))}
-            </CardContent>
-          </Card>
-        </Grid>
-
-      </Grid>
+      </div>
     </div>
   );
 };

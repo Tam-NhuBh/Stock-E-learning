@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 //import GoogleAuthComponent from "../../common/google-auth-component";
 
 import { useDispatch,useSelector } from "react-redux";
-import { studentLoginValidationSchema } from "../../validations/auth/studentLoginValidation";
+import { LoginValidationSchema } from "../../validations/auth/LoginValidation";
 //import { selectIsLoggedIn } from "../../../redux/reducers/authSlice";
 //import { selectUserType } from "../../../redux/reducers/authSlice";
 
@@ -42,7 +42,7 @@ const StudentLoginPage: React.FC = () => {
           </div>
           <Formik
             initialValues={{ email: "", password: "" }}
-            validationSchema={studentLoginValidationSchema}
+            validationSchema={LoginValidationSchema}
             onSubmit={handleSubmit}
           >
             <Form className='mt-10 space-y-6'>
