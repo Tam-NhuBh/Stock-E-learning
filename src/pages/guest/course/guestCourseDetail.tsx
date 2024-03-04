@@ -207,28 +207,33 @@ const GuestCourseDetail = () => {
   };
 
   return (
-    <div className='guest-course-detail'>
+    <div className='guest-course-detail' style={{ backgroundColor: '#d3f2ff', padding: '20px' }}>
       <Typography variant="h3">{course.title}</Typography>
       <img src={course.image} alt={course.title} style={{ maxWidth: '100%', height: 'auto' }} />
 
-      <Tabs value={currentTab} onChange={handleTabChange} aria-label="course tabs">
+      <Tabs
+        value={currentTab}
+        onChange={handleTabChange}
+        aria-label="course tabs"
+        sx={{ backgroundColor: '#fff' }} // Thay đổi màu nền của Tabs
+      >
         <Tab value="about" label="About" />
-        <Tab value="courses" label="Courses" />
-        <Tab value="testimonials" label="Testimonials" />
+        <Tab value="courses" label="Course" />
+        <Tab value="testimonials" label="Testimonials"/>
       </Tabs>
 
       {currentTab === 'about' && (
-        <div style={{ paddingLeft: '20px', display: 'flex', alignItems: 'flex-start', textAlign: 'left', marginTop: '10px'}}>
-          <div style={{ paddingLeft: '10px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-            <Typography variant="h5" style={{ marginBottom: '10px' }}>What you'll learn</Typography>
-            <div style={{ paddingLeft: '10px' }}>
-              {course.description.map((description, index) => (
-                <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '5px' }}>
-                  <Typography variant="h5" style={{ marginRight: '5px' }}>&#10003;</Typography>
-                  <Typography variant="body1">{description}</Typography>
-                </div>
-              ))}
-            </div>
+      <div style={{ paddingLeft: '20px', display: 'flex', alignItems: 'flex-start', textAlign: 'left', marginTop: '10px', backgroundColor: '#fff' }}>
+        <div style={{ paddingLeft: '10px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+          <Typography variant="h5" style={{ marginBottom: '10px' }}>What you'll learn</Typography>
+          <div style={{ paddingLeft: '10px' }}>
+            {course.description.map((description, index) => (
+              <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '5px' }}>
+                <Typography variant="h5" style={{ marginRight: '5px' }}>&#10003;</Typography>
+                <Typography variant="body1">{description}</Typography>
+              </div>
+            ))}
+          </div>
 
             <Typography variant="h5" style={{ marginBottom: '10px', marginTop:'40px'}}>Skills you'll gain</Typography>      
             <div style={{ paddingLeft: '32px' }}>
@@ -265,10 +270,10 @@ const GuestCourseDetail = () => {
 
 
       {currentTab === 'courses' && (
-        <div style={{ paddingLeft: '10px', display: 'flex', marginRight: '22px', alignItems: 'flex-start', textAlign: 'left', marginTop: '10px'}}>
+        <div style={{ paddingLeft: '10px', display: 'flex', alignItems: 'flex-start', textAlign: 'left', marginTop: '10px', backgroundColor: '#fff' }}>
           <div style={{ paddingLeft: '5px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
             <Typography variant="h5" style={{marginBottom: '10px'}}>Curriculum</Typography>
-            {course.courses.map((courseItem, courseIndex) => (
+              {course.courses.map((courseItem, courseIndex) => (
               <Accordion key={courseIndex} expanded={expandedSections[courseIndex]} onChange={() => toggleSection(courseIndex)}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                   <Typography variant="h6">{courseItem}</Typography>
@@ -280,12 +285,12 @@ const GuestCourseDetail = () => {
                       <ul key={videoIndex}>Video {videoIndex + 1}</ul>
                     ))}
                   </ul>
-                </AccordionDetails>
-              </Accordion>
-            ))}
-          </div>
-        </div>
-      )}
+                      </AccordionDetails>
+                    </Accordion>
+                  ))}
+                </div>
+              </div>
+            )}
 
       {/* {currentTab === 'testimonials' && (
         <div style={{ marginTop: '20px' }}>
