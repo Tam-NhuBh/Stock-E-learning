@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Grid, Card, Button , CardContent, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Pagination } from "@mui/material";
 import trend from "../../../assets/img/trend.jpg";
+import { useNavigate } from "react-router-dom";
 
 const GuestBlog = () => {
   const newsPosts = [
@@ -25,6 +26,7 @@ const GuestBlog = () => {
   const postsPerPage = 9;
   const totalPosts = newsPosts.length;
   const totalPages = Math.ceil(totalPosts / postsPerPage);
+  const navigate = useNavigate();
 
   const handleChangePage = (event:any, value:any) => {
     setPage(value);
@@ -40,6 +42,12 @@ const GuestBlog = () => {
     newsPosts.slice(2, 4),
   ];
 
+  const handlePostClick = (postId: number) => {
+    const postClick = newsPosts.find(post => post.id === postId);
+    if (postClick) {
+      navigate(`/post/${postId}`);
+    }
+  };
   return (
     <div className="guest-blog" style={{ height: '100vh', margin: 0, padding: 0, backgroundColor: '#d3f2ff' }}>
       <div style={{ padding: '20px',backgroundColor: '#d3f2ff' }}>
@@ -48,10 +56,10 @@ const GuestBlog = () => {
             {currentPosts.map(post => (
               <Card key={post.id} style={{ marginBottom: '20px' }}>
                 <CardContent style={{ display: 'flex' }}>
-                  <div style={{ width: '30%', marginRight: '20px' }}>
+                  <div style={{ width: '30%', marginRight: '20px',  cursor: 'pointer'}} onClick={() => handlePostClick(post.id)}>
                     <img src={post.image} alt={post.title} style={{ width: '100%', height: 'auto' }} />
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column",  textAlign: "left"  }}>
+                  <div style={{ display: "flex", flexDirection: "column",  textAlign: "left" ,  cursor: 'pointer'}} onClick={() => handlePostClick(post.id)}>
                     <div style={{ marginBottom: "10px" }}>
                       <Typography variant="subtitle1" style={{ fontWeight: "bold", color: "#333" }}>{post.type}</Typography>
                       <Typography variant="body2" color="textSecondary">{post.time}</Typography>
@@ -107,7 +115,7 @@ const GuestBlog = () => {
                             <Typography variant="subtitle1" style={{ fontWeight: "bold", color: "#333" }}>{post.time}</Typography>
                             <Typography variant="h6" style={{ marginBottom: "10px", color: "#333" }}>{post.title}</Typography>
                             <Typography style={{ color: "#555", marginBottom: "10px" }}>{post.content}</Typography>
-                            <Button variant="contained" color="primary">Đọc nhanh</Button>
+                            <Button variant="contained" color="primary" onClick={() => handlePostClick(post.id)}>Đọc nhanh</Button>
                           </div>
                         </CardContent>
                       </Grid>
