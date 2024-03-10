@@ -7,7 +7,7 @@ import RegistrationPage from "../component/registration/registration-page"
 import Login from "../component/Login/login"
 import GuestBlogDetail from "../pages/guest/blog/guestBlogDetail"
 //import React, { lazy } from "react";
-
+import UserHompage from "../pages/user/home/HomePage"
 // const LazyStudentLogin = lazy(
 //   () => import("../component/student-login-page/student-login-page")
 // );
@@ -49,7 +49,13 @@ const publicRoutes = [
   {
     path: "/register",
     component: RegistrationPage
-  }
+  },
+
+  
+  {
+    path: "/userhomepage",
+    component: UserHompage
+  },
 ]
 
 
