@@ -30,4 +30,14 @@
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2); /* Tăng độ đậm và độ mờ của hiệu ứng đổ bóng khi hover */
 
   }
+  /* --- recommend --- */
+  .course-info-wrapper {
+    width: 100%; /* hoặc giá trị phần trăm mong muốn */
+    max-width: 900px; /* hoặc giá trị tối đa mong muốn */
+    padding: 20px; /* Thêm padding */
+  }
+  
+  .course-card {
+    margin-bottom: 10px; /* Thêm margin dưới cho card */
+  }
   

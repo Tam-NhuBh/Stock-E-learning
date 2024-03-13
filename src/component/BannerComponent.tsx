@@ -1,9 +1,9 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import banner1 from "../../../assets/img/banner.png";
-import banner2 from "../../../assets/img/banner.png";
-import banner3 from "../../../assets/img/banner.png";
+import banner1 from "../assets/img/banner.png";
+import banner2 from "../assets/img/banner.png";
+import banner3 from "../assets/img/banner.png";
 
 const BannerComponent = () => {
     const settings = {

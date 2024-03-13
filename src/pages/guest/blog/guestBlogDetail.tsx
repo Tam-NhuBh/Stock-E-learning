@@ -133,7 +133,6 @@ const GuestBlogDetail = () => {
                           multiline
                           rows={4}
                           style={{ marginBottom: '10px' }}
-                          onClick={handleSubmit}
 
                         />
                         <Button variant="contained" color="primary">
