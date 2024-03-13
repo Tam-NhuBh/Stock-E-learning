@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 //import GoogleAuthComponent from "../../common/google-auth-component";
 
 import { useDispatch,useSelector } from "react-redux";
-import { LoginValidationSchema } from "../../validations/auth/LoginValidation";
+import { LoginValidationSchema } from "../validations/auth/LoginValidation";
 //import { selectIsLoggedIn } from "../../../redux/reducers/authSlice";
 //import { selectUserType } from "../../../redux/reducers/authSlice";
 

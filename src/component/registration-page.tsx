@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import SelectInterest from "./custom-select-box";
 
 import { useNavigate } from "react-router-dom";
-import { registrationValidationSchema } from "../../validations/auth/registerValidation";
+import { registrationValidationSchema } from "../validations/auth/registerValidation";
 //import GoogleAuthComponent from "../../common/google-auth-component";
 
 const RegistrationPage: React.FC = () => {

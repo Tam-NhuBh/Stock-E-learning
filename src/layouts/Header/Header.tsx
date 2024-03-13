@@ -86,7 +86,7 @@ function Header() {
           <input
             type="text"
             placeholder="Search..."
-            className="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none"
+            className="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none text-black"
             value={searchQuery}
             onChange={handleSearchChange}
           />

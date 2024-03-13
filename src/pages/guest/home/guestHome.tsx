@@ -1,6 +1,6 @@
-import CourseComponent from '../../../component/guest/home/CourseComponent';
-import BannerComponent from '../../../component/guest/home/BannerComponent';
-import PostComponent from '../../../component/guest/home/PostComponent';
+import CourseComponent from '../../../component/CourseComponent';
+import BannerComponent from '../../../component/BannerComponent';
+import PostComponent from '../../../component/PostComponent';
 
 import { Grid } from '@mui/material';
 

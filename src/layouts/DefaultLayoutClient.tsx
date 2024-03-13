@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import ChatWidget from '../component/WhatsAppWeget';
 import Chatbot from '../component/chatbot/chatbot';
 
 export default function DefaultLayoutClient({ children }: any) {
