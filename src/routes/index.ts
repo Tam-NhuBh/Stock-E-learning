@@ -1,13 +1,16 @@
-import guestHome from "../pages/guest/home/guestHome"
-import guestCourse from "../pages/guest/course/guestCourse"
-import guestBlog from "../pages/guest/blog/guestBlog"
-import guestContact from "../pages/guest/contact/guestContact"
-import GuestCourseDetail from "../pages/guest/course/guestCourseDetail"
-import RegistrationPage from "../component/registration-page"
-import Login from "../component/LoginComponent"
-import GuestBlogDetail from "../pages/guest/blog/guestBlogDetail"
+import RegistrationPage from "../pages/Registration"
+import Login from "../pages/Login"
+import Contact from "../pages/Contact"
+import Newsfeed from "../pages/Newsfeed"
+import NewsfeedDetail from "../component/NewsfeedDetail"
+import Courses from "../pages/Courses"
+import CourseDetail from "../pages/CourseDetail"
+import guestHome from "../pages/guest/guestHome"
 //import React, { lazy } from "react";
-import UserHompage from "../pages/user/home/UserHome"
+import UserHompage from "../pages/user/UserHome"
+import LearningPage from "../pages/LearningPage"
+import ShoppingMap from "../pages/ShoppingMap"
+
 // const LazyStudentLogin = lazy(
 //   () => import("../component/student-login-page/student-login-page")
 // );
@@ -16,34 +19,34 @@ const publicRoutes = [
     path: '/',
     component: guestHome
   },
-  
+
   {
-    path: '/course',
-    component:  guestCourse
+    path: '/news',
+    component:  Newsfeed
   },
 
   {
-    path: '/blog',
-    component:  guestBlog
+    path: "/news/:id",
+    component: NewsfeedDetail
   },
 
   {
     path: '/contact',
-    component:  guestContact
+    component:  Contact
+  },
+  
+  {
+    path: '/courses',
+    component:  Courses
   },
 
   {
-    path: '/course/:id',
-    component:  GuestCourseDetail
+    path: '/courses/:id',
+    component:  CourseDetail
   },
   {
     path: "/login",
     component: Login
-  },
-
-  {
-    path: "/post/:id",
-    component: GuestBlogDetail
   },
 
   {
@@ -56,6 +59,18 @@ const publicRoutes = [
     path: "/userhomepage",
     component: UserHompage
   },
+    
+  {
+    path: "/myCourse/learning/",
+    component: LearningPage
+  },
+    
+  {
+    path: "/shopping",
+    component: ShoppingMap
+  },
+
+
 ]
 
 

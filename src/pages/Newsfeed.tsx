@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Grid, Card, Button , CardContent, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Pagination } from "@mui/material";
-import trend from "../../../assets/img/trend.jpg";
+import { Grid, Card, Button, CardContent, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Pagination } from "@mui/material";
+import trend from "../assets/img/trend.jpg";
 import { useNavigate } from "react-router-dom";
 
-const GuestBlog = () => {
+const Newsfeed = () => {
   const newsPosts = [
     { id: 1, title: "Bài post 1", content: "Nội dung bài post 1", image: "path/to/image1.jpg", type: "Tin tức", time: "10:00 AM, 24/02/2024" },
     { id: 2, title: "Bài post 2", content: "Nội dung bài post 2", image: "path/to/image2.jpg", type: "Tin tức", time: "11:00 AM, 24/02/2024" },
@@ -28,7 +28,7 @@ const GuestBlog = () => {
   const totalPages = Math.ceil(totalPosts / postsPerPage);
   const navigate = useNavigate();
 
-  const handleChangePage = (event:any, value:any) => {
+  const handleChangePage = (event: any, value: any) => {
     setPage(value);
   };
 
@@ -45,21 +45,21 @@ const GuestBlog = () => {
   const handlePostClick = (postId: number) => {
     const postClick = newsPosts.find(post => post.id === postId);
     if (postClick) {
-      navigate(`/post/${postId}`);
+      navigate(`/news/${postId}`);
     }
   };
   return (
     <div className="guest-blog" style={{ height: '100vh', margin: 0, padding: 0, backgroundColor: '#d3f2ff' }}>
-      <div style={{ padding: '20px',backgroundColor: '#d3f2ff' }}>
-        <Grid container spacing={4} style={{ marginTop: '2px'  }}>
+      <div style={{ padding: '20px', backgroundColor: '#d3f2ff' }}>
+        <Grid container spacing={4} style={{ marginTop: '2px' }}>
           <Grid item xs={12} lg={8}>
             {currentPosts.map(post => (
               <Card key={post.id} style={{ marginBottom: '20px' }}>
                 <CardContent style={{ display: 'flex' }}>
-                  <div style={{ width: '30%', marginRight: '20px',  cursor: 'pointer'}} onClick={() => handlePostClick(post.id)}>
+                  <div style={{ width: '30%', marginRight: '20px', cursor: 'pointer' }} onClick={() => handlePostClick(post.id)}>
                     <img src={post.image} alt={post.title} style={{ width: '100%', height: 'auto' }} />
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column",  textAlign: "left" ,  cursor: 'pointer'}} onClick={() => handlePostClick(post.id)}>
+                  <div style={{ display: "flex", flexDirection: "column", textAlign: "left", cursor: 'pointer' }} onClick={() => handlePostClick(post.id)}>
                     <div style={{ marginBottom: "10px" }}>
                       <Typography variant="subtitle1" style={{ fontWeight: "bold", color: "#333" }}>{post.type}</Typography>
                       <Typography variant="body2" color="textSecondary">{post.time}</Typography>
@@ -73,7 +73,7 @@ const GuestBlog = () => {
             <Pagination count={totalPages} page={page} onChange={handleChangePage} />
           </Grid>
 
-          <Grid item xs={12} lg={4} style={{ position: 'sticky', top: '20px'}}>
+          <Grid item xs={12} lg={4} style={{ position: 'sticky', top: '20px' }}>
             <Card style={{ marginBottom: '20px', maxHeight: 'calc(100vh - 160px)', overflowY: 'auto' }}>
               <CardContent>
                 <Typography variant="h5" component="h2" style={{ marginBottom: '20px' }}>
@@ -115,7 +115,8 @@ const GuestBlog = () => {
                             <Typography variant="subtitle1" style={{ fontWeight: "bold", color: "#333" }}>{post.time}</Typography>
                             <Typography variant="h6" style={{ marginBottom: "10px", color: "#333" }}>{post.title}</Typography>
                             <Typography style={{ color: "#555", marginBottom: "10px" }}>{post.content}</Typography>
-                            <Button variant="contained" color="primary" onClick={() => handlePostClick(post.id)}>Đọc nhanh</Button>
+                            <div className="read-button bg-blue-700 px-3 py-2 text-center font-semibold text-lg text-white rounded cursor-pointer"
+                              onClick={() => handlePostClick(post.id)}>Read</div>
                           </div>
                         </CardContent>
                       </Grid>
@@ -131,4 +132,4 @@ const GuestBlog = () => {
   );
 };
 
-export default GuestBlog;
+export default Newsfeed;

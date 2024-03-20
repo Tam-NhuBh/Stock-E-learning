@@ -2,13 +2,13 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import SelectInterest from "./custom-select-box";
+import SelectInterest from "../component/custom-select-box";
 
 import { useNavigate } from "react-router-dom";
 import { registrationValidationSchema } from "../validations/auth/registerValidation";
 //import GoogleAuthComponent from "../../common/google-auth-component";
 
-const RegistrationPage: React.FC = () => {
+const Registration: React.FC = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
@@ -214,4 +214,4 @@ const RegistrationPage: React.FC = () => {
   );
 };
 
-export default RegistrationPage;
+export default Registration;

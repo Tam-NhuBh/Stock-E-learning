@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Typography, Tabs, Tab, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
-import course1 from '../../../assets/img/banner.png';
+import course1 from '../assets/img/banner.png';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const GuestCourseDetail = () => {
+const CourseDetail = () => {
   const courses = [
     { 
       id: 1, 
@@ -308,4 +308,4 @@ const GuestCourseDetail = () => {
 };
 
 
-export default GuestCourseDetail;
+export default CourseDetail;

@@ -1,6 +1,6 @@
 import { Grid, Card, CardContent, Typography, TextField, Button, Box } from "@mui/material";
 
-const GuestContact = () => {  
+const Contact = () => {  
 
   return (
     <div className="guest-contact" style={{ backgroundColor: '#d3f2ff', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -62,4 +62,4 @@ const GuestContact = () => {
   );
 };
 
-export default GuestContact;
+export default Contact;

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Grid, Card, CardContent, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Button, Divider, Avatar } from "@mui/material";
-import trend from "../../../assets/img/trend.jpg";
+import trend from "../assets/img/trend.jpg";
 import { useParams } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite'; // Import icon like từ Material-UI Icons
 import FacebookIcon from '@mui/icons-material/Facebook'; 
 import TwitterIcon from '@mui/icons-material/Twitter'; 
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
-const GuestBlogDetail = () => {
+const NewsfeedDetail = () => {
   const newsPosts = [
     {   id: 1, 
         title:"Ngân hàng trầy trật với nợ xấu",
@@ -174,4 +174,4 @@ const GuestBlogDetail = () => {
   );
 };
 
-export default GuestBlogDetail;
+export default NewsfeedDetail;
