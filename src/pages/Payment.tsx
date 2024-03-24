@@ -21,7 +21,7 @@ const mockData = [
     }
 ];
 
-const UserPayment = () => {
+const Payment = () => {
     const [selectedShippingMethod, setSelectedShippingMethod] = useState(null);
     const navigate = useNavigate();
 
@@ -136,6 +136,6 @@ const UserPayment = () => {
     );
 };
 
-export default UserPayment;
+export default Payment;
 
 

@@ -42,17 +42,21 @@ const Cart = () => {
         return total.toFixed(2);
     };
 
+    const handleCheckout = () =>{
+        
+    };
+
     return (
         <div className='user-cart'>
             <div className=" h-screen py-4">
-                <div className="container mx-auto px-4">               
+                <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row gap-4">
                         <div className="md:w-3/4">
                             <div className="bg-white rounded-lg shadow-lg p-6 mb-4">
                                 <table className="w-full">
                                     <thead>
                                         <tr>
-                                            <th className="text-left font-semibold sm:w-1/3">Product</th>
+                                            <th className="text-left font-semibold sm:w-1/3">Course</th>
                                             <th className="text-left font-semibold sm:w-1/6">Price</th>
                                             <th className="text-left font-semibold sm:w-1/6">Quantity</th>
                                             <th className="text-left font-semibold sm:w-1/6">Total</th>
@@ -70,10 +74,23 @@ const Cart = () => {
                                                 <td className="py-4 sm:w-1/6">${item.price.toFixed(2)}</td>
                                                 <td className="py-4 sm:w-1/6">
                                                     <div className="flex items-center">
-                                                        <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)} className="border rounded-md py-2 px-4 mr-2">-</button>
+                                                        <button
+                                                            onClick={() => handleQuantityChange(item.id, Math.max(item.quantity - 1, 0))}
+                                                            className={`border rounded-md py-2 px-4 mr-2 ${item.quantity === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                                            disabled={item.quantity === 0}
+                                                        >
+                                                            -
+                                                        </button>
                                                         <span className="text-center w-8">{item.quantity}</span>
-                                                        <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)} className="border rounded-md py-2 px-4 ml-2">+</button>
+                                                        <button
+                                                            onClick={() => handleQuantityChange(item.id, Math.min(item.quantity + 1, 999))}
+                                                            className={`border rounded-md py-2 px-4 ml-2 ${item.quantity === 999 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                                            disabled={item.quantity === 999}
+                                                        >
+                                                            +
+                                                        </button>
                                                     </div>
+
                                                 </td>
                                                 <td className="py-4 sm:w-1/6">${(item.price * item.quantity).toFixed(2)}</td>
                                             </tr>
@@ -90,7 +107,7 @@ const Cart = () => {
                                     <span>Subtotal</span>
                                     <span>${calculateTotal()}</span>
                                 </div>
-                                <div className="bg-blue-700 px-7 py-2 text-center font-semibold text-lg text-white rounded">Checkout</div>
+                                <div className="bg-blue-700 px-7 py-2 text-center font-semibold text-lg text-white rounded" onClick={handleCheckout}>Checkout</div>
                             </div>
                         </div>
                     </div>

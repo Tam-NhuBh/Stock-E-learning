@@ -10,6 +10,9 @@ import guestHome from "../pages/guest/guestHome"
 import UserHompage from "../pages/user/UserHome"
 import LearningPage from "../pages/LearningPage"
 import ShoppingMap from "../pages/ShoppingMap"
+import Watching from "../pages/Watching"
+import Payment from "../pages/Payment"
+import Profile from "../pages/Profile"
 
 // const LazyStudentLogin = lazy(
 //   () => import("../component/student-login-page/student-login-page")
@@ -66,10 +69,24 @@ const publicRoutes = [
   },
     
   {
-    path: "/shopping",
+    path: "/cart",
     component: ShoppingMap
   },
 
+  {
+    path: "/payment",
+    component: Payment
+  },
+
+  {
+    path: "/watching",
+    component: Watching
+  },
+
+  {
+    path: "/profile",
+    component: Profile
+  },
 
 ]
 
