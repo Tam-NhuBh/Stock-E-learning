@@ -1,9 +1,9 @@
 import React from "react";
-import BannerComponent from '../../../component/BannerComponent';
-import DeadlineComponent from "../../../component/DeadlineComponent";
-import RecommendComponent from "../../../component/RecommendComponent";
-import CourseComponent from "../../../component/CourseComponent";
-import PostComponent from "../../../component/PostComponent";
+import Banner from '../../component/Banner';
+import StudyReminder from "../../component/StudyReminder";
+import CourseRecommendation from "../../component/CourseRecommendation";
+import SalesCourse from "../../component/SalesCourse";
+import Newsfeed from "../Newsfeed";
 
 const UserHome = () => {
     // Dữ liệu tĩnh cho các khóa học
@@ -16,25 +16,25 @@ const UserHome = () => {
     return (
         <div className="user-homepage">
            <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-                <div style={{ flex: 1 }}>
-                    <BannerComponent />
+                <div style={{  flex: 1 }}>
+                    <Banner />
                 </div>
 
                 {/* Khung hiển thị khóa học */}
                 <div style={{ flex: 1 }}>
-                    <DeadlineComponent />
+                    <StudyReminder />
                 </div>
 
                 <div style={{ flex: 1 }}>
-                    <RecommendComponent />
+                    <CourseRecommendation />
                 </div>
 
                 <div style={{ flex: 1 }}>
-                    <CourseComponent />
+                    <SalesCourse />
                 </div>
 
                 <div style={{ flex: 1 }}>
-                    <PostComponent />
+                    <Newsfeed />
                 </div>
             </div>
         </div>

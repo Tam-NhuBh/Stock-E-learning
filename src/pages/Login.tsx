@@ -9,7 +9,7 @@ import { LoginValidationSchema } from "../validations/auth/LoginValidation";
 //import { selectIsLoggedIn } from "../../../redux/reducers/authSlice";
 //import { selectUserType } from "../../../redux/reducers/authSlice";
 
-const StudentLoginPage: React.FC = () => {
+const Login: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(() => ({ student: "" }));
@@ -133,4 +133,4 @@ const StudentLoginPage: React.FC = () => {
   );
 };
 
-export default StudentLoginPage;
+export default Login;

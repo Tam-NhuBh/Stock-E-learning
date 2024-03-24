@@ -5,7 +5,7 @@ import banner1 from "../assets/img/banner.png";
 import banner2 from "../assets/img/banner.png";
 import banner3 from "../assets/img/banner.png";
 
-const BannerComponent = () => {
+const Banner = () => {
     const settings = {
         dots: true,
         infinite: true,
@@ -35,4 +35,4 @@ const BannerComponent = () => {
     );
 };
 
-export default BannerComponent;
+export default Banner;
