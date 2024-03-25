@@ -1,0 +1,79 @@
+/* sitenavStyle.css */
+
+.instructor-side-nav {
+    background-color: black;
+    width: 55px; /* Initial width to fit only icons */
+    height: 100vh; /* Make the nav take the full viewport height */
+    transition: width 0.5s;
+    will-change: width;
+    overflow: hidden; /* Prevents content overflow */
+  }
+  
+  .instructor-side-nav:hover {
+    width: 250px; /* Expand on hover to show text */
+  }
+  
+  .instructor-side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+  }
+  
+  .instructor-side-nav li {
+    height: 60px;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    padding-left: 20px;
+    height: 100%; /* Ensure the link covers the full height of its container */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+  }
+  
+  .nav-link:hover, .nav-link:focus {
+    background-color: gray; /* Change background color on hover/focus */
+    width: 100%; /* Ensure the hover background covers the full width */
+  }
+  
+  .link-text {
+    white-space: nowrap;
+    opacity: 0;
+    width: 0;
+    transition: opacity 0.5s, width 0.5s;
+    will-change: opacity, width;
+    overflow: hidden; /* Prevent text overflow */
+  }
+  
+  .instructor-side-nav:hover .link-text {
+    opacity: 1;
+    width: auto; /* Allow text to expand */
+    padding-left: 20px;
+  }
+  
+  .react-icons {
+    color: white;
+    margin-right: 20px;
+  }
+  .main-layout {
+    display: flex; /* Enables flex layout */
+    min-height: 100vh; /* Ensures the layout covers the full viewport height */
+  }
+  
+  .ud-tab-content {
+    flex-grow: 1; /* Allows the content area to take up the remaining space */
+    padding: 20px; /* Adds some spacing around the content */
+    background-color: #f0f0f0; /* Optional: Sets a background color for the content area */
+  }
+  
+  /* Additional styles for responsiveness and aesthetics */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column; /* Stacks the nav and content on smaller screens */
+    }
+  }

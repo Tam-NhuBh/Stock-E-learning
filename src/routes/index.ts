@@ -13,6 +13,7 @@ import ShoppingMap from "../pages/ShoppingMap"
 import Watching from "../pages/Watching"
 import Payment from "../pages/Payment"
 import Profile from "../pages/Profile"
+import BasicInformation from "../pages/instructor/profile/BasicInformation"
 
 // const LazyStudentLogin = lazy(
 //   () => import("../component/student-login-page/student-login-page")
@@ -86,6 +87,10 @@ const publicRoutes = [
   {
     path: "/profile",
     component: Profile
+  },
+  {
+    path: "/instructor/profile/basic-information",
+    component: BasicInformation
   },
 
 ]
