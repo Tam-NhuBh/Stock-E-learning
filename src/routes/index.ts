@@ -10,7 +10,7 @@ import guestHome from "../pages/guest/guestHome"
 import UserHompage from "../pages/user/UserHome"
 import LearningPage from "../pages/LearningPage"
 import ShoppingMap from "../pages/ShoppingMap"
-import Watching from "../pages/Watching"
+import VideoPlayer from "../pages/VideoPlayer"
 import Payment from "../pages/Payment"
 import Profile from "../pages/Profile"
 
@@ -79,8 +79,8 @@ const publicRoutes = [
   },
 
   {
-    path: "/watching",
-    component: Watching
+    path: "/video-player",
+    component: VideoPlayer
   },
 
   {

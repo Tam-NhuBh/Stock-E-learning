@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
     const mockData = [
@@ -21,7 +22,7 @@ const Cart = () => {
 
 
     const [cartItems, setCartItems] = useState(mockData);
-
+    const navigator = useNavigate();
     // Hàm xử lý thay đổi số lượng sản phẩm
     const handleQuantityChange = (itemId: number, newQuantity: number) => {
         const updatedCartItems = cartItems.map(item => {
@@ -42,8 +43,8 @@ const Cart = () => {
         return total.toFixed(2);
     };
 
-    const handleCheckout = () =>{
-        
+    const handleCheckout = () => {
+        navigator('/payment')
     };
 
     return (
@@ -107,7 +108,7 @@ const Cart = () => {
                                     <span>Subtotal</span>
                                     <span>${calculateTotal()}</span>
                                 </div>
-                                <div className="bg-blue-700 px-7 py-2 text-center font-semibold text-lg text-white rounded" onClick={handleCheckout}>Checkout</div>
+                                <div className="bg-blue-700 px-7 py-2 text-center font-semibold text-lg text-white rounded cursor-pointer" onClick={handleCheckout}>Checkout</div>
                             </div>
                         </div>
                     </div>
