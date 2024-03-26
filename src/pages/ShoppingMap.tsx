@@ -9,9 +9,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const ShoppingMap = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const [selectedTab, setSelectedTab] = useState(location.pathname === '/cart' ? 'Shop' : 'Payment');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [selectedTab, setSelectedTab] = useState('default'); // Khởi tạo state cho selectedTab
 
     useEffect(() => {
         // Mock check if user is logged in
@@ -35,10 +35,15 @@ const ShoppingMap = () => {
         setShowModal(false);
     };
 
+    // const handleTabChange = (tab:any) => {
+    //     setSelectedTab(tab);
+    //     navigate(tab === 'Shop' ? '/cart' : '/payment', { replace: true });
+    // };
+
     const handleTabChange = (tab:any) => {
-        setSelectedTab(tab);
-        navigate(tab === 'Shop' ? '/cart' : '/payment', { replace: true });
+        setSelectedTab(tab); // Hàm xử lý sự kiện thay đổi tab
     };
+
 
     return (
         <div className='shopping-map'>

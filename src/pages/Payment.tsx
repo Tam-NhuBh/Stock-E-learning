@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import course1 from '../assets/img/stock.jpg'
-import { FaSpinner } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { FaCheckCircle } from 'react-icons/fa';
+import {useNavigate } from 'react-router-dom';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
 
 // Tách dữ liệu thành biến mock
 const mockData = [
@@ -22,27 +24,20 @@ const mockData = [
 ];
 
 const Payment = () => {
-    const [selectedShippingMethod, setSelectedShippingMethod] = useState(null);
     const navigate = useNavigate();
-
-    // Hàm chọn phương thức vận chuyển
-    const handleSelectShippingMethod = (method: any) => {
-        setSelectedShippingMethod(method);
-    };
+    const [showModal, setShowModal] = useState(false); // State để điều khiển hiển thị modal
 
     // Hàm xử lý đặt hàng
     const handlePlaceOrder = () => {
         // Xử lý logic đặt hàng ở đây
-        console.log("Placing order...");
+        // Hiển thị modal khi nhấn vào nút "Place Order"
+        setShowModal(true);
     };
 
-    // Hàm xử lý thanh toán
-    const handlePayment = () => {
-        // Xử lý logic thanh toán ở đây
-
-        // Hiển thị modal thông báo đã thanh toán thành công
-
-        // Điều hướng người dùng đến trang "userHomepage" sau khi thanh toán thành công
+    const handlePaymentSuccess = () => {
+        // Xử lý logic khi thanh toán thành công
+        // Đóng modal và điều hướng người dùng đến trang chủ
+        setShowModal(false);
         navigate('/userHomepage');
     };
 
@@ -129,7 +124,46 @@ const Payment = () => {
                             <p className="text-2xl font-semibold text-gray-900">$408.00</p>
                         </div>
                     </div>
-                    <button className="mt-4 mb-8 w-full rounded-md bg-blue-600 px-6 py-3 font-medium text-white">Place Order</button>
+                    <div className="bg-blue-700 px-7 py-2 text-center font-semibold text-lg text-white rounded cursor-pointer mt-6" onClick={handlePlaceOrder}>Place Order</div>
+                    {/* Modal hiển thị thông tin nhập liệu tài khoản ngân hàng */}
+                    {showModal && (
+                        // JSX
+                        <Modal
+                            open={showModal}
+                            onClose={() => setShowModal(false)}
+                            aria-labelledby="modal-title"
+                            aria-describedby="modal-description"
+                            className="fixed inset-0 flex items-center justify-center"
+                        >
+    <div className="bg-white p-6 rounded-lg shadow-xl w-96">
+        <div className="flex justify-center">
+            <FaCheckCircle className="text-green-500 text-5xl mb-4" />
+        </div>
+        <p className="text-center font-semibold text-lg">Transaction Details</p>
+        <div className="mt-4">
+            <p className="text-sm font-semibold">Order ID:</p>
+            <p className="text-sm">123456789</p>
+        </div>
+        <div className="mt-2">
+            <p className="text-sm font-semibold">Course:</p>
+            <p className="text-sm">Stock Market Course</p>
+        </div>
+        <div className="mt-2">
+            <p className="text-sm font-semibold">Quantity:</p>
+            <p className="text-sm">1</p> {/* Số lượng khóa học đã mua */}
+        </div>
+        <div className="mt-2">
+            <p className="text-sm font-semibold">Amount:</p>
+            <p className="text-sm">$99.99</p>
+        </div>
+        <div className="flex justify-center mt-6">
+            <Button variant="outlined" className="mr-8">Print</Button>
+            <Button variant="contained" onClick={handlePaymentSuccess}>OK</Button>
+        </div>
+    </div>
+                        </Modal>
+
+                    )}
                 </div>
             </div>
         </div>
